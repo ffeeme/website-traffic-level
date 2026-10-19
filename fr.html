@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vérificateur de Niveau de Trafic Web : Mon Site est-il Normal ? | ffee</title>
+  <meta name="description"
+    content="Découvrez la situation réelle de votre site. Entrez vos pages vues pour vérifier le niveau de trafic de votre site, le comparer et estimer vos revenus AdSense.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="ffee">
+  <link rel="canonical" href="https://ffee.me/fr/tools/website-traffic-level/">
+
+  <link rel="alternate" hreflang="en" href="https://ffee.me/tools/website-traffic-level/">
+  <link rel="alternate" hreflang="zh" href="https://ffee.me/zh/tools/website-traffic-level/">
+  <link rel="alternate" hreflang="fr" href="https://ffee.me/fr/tools/website-traffic-level/">
+  <link rel="alternate" hreflang="de" href="https://ffee.me/de/tools/website-traffic-level/">
+  <link rel="alternate" hreflang="x-default" href="https://ffee.me/tools/website-traffic-level/">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ffee">
+  <meta property="og:title" content="Vérificateur de Niveau de Trafic Web : Mon Site est-il Normal ? | ffee">
+  <meta property="og:description" content="Arrêtez de deviner. Entrez vos pages vues quotidiennes pour savoir exactement où se situe votre site et ce que vaut votre trafic.">
+  <meta property="og:url" content="https://ffee.me/fr/tools/website-traffic-level/">
+  <meta property="og:image" content="https://ffee.me/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vérificateur de Niveau de Trafic Web : Mon Site est-il Normal ? | ffee">
+  <meta name="twitter:description" content="Arrêtez de deviner. Entrez vos pages vues quotidiennes pour savoir où se situe votre site.">
+  <meta name="twitter:image" content="https://ffee.me/og-image.png">
+
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "yv3wfphb08");
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2358907850638481"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <style>
+    /* 与中文版共用样式，为节省空间省略，请直接复制上方中文版的 <style> 标签内容 */
+    .estimator-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+    .estimator-form .form-group { display: flex; flex-direction: column; gap: 8px; text-align: left; }
+    .estimator-form label { font-weight: bold; font-size: 14px; color: var(--text-color, #333); }
+    .estimator-form input, .estimator-form select { width: 100%; padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px; background: #fff; box-sizing: border-box; outline: none; }
+    .estimator-form input:focus, .estimator-form select:focus { border-color: #0078d4; }
+    .estimator-form button { margin-top: 10px; width: 100%; padding: 14px; font-size: 16px; font-weight: bold; cursor: pointer; }
+    #estResult { display: none; margin-top: 25px; text-align: left; }
+    .est-card { padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eaeaea; background: #fafafa; }
+    .est-level-title { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+    .est-level-desc { font-size: 14px; line-height: 1.6; color: #555; }
+    .est-money-box { background-color: #fffae6; color: #b25000; border-color: #ffe380; }
+    .est-money-title { font-size: 18px; font-weight: bold; margin-bottom: 12px; border-bottom: 1px dashed #ffd666; padding-bottom: 8px; display: flex; align-items: center; gap: 8px;}
+    .est-money-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 15px; align-items: flex-end;}
+    .est-money-val { font-weight: bold; font-size: 18px; text-align: right;}
+    .est-money-cny { font-size: 13px; font-weight: normal; color: #888; display: block;}
+    .est-warning { font-size: 12px; color: #888; margin-top: 15px; line-height: 1.5; background: rgba(0,0,0,0.03); padding: 10px; border-radius: 6px; }
+    .lvl-1 { background-color: #ffebe6; color: #de350b; border-color: #ffbdad; }
+    .lvl-2 { background-color: #fffae6; color: #ff991f; border-color: #ffe380; }
+    .lvl-3 { background-color: #e3fcef; color: #006644; border-color: #abf5d1; }
+    .lvl-4 { background-color: #deebff; color: #0747a6; border-color: #b3d4ff; }
+    .lvl-5 { background-color: #eae6ff; color: #403294; border-color: #c0b6f2; }
+    .est-level-desc a.case-link { color: inherit; text-decoration: underline; text-decoration-color: rgba(0,0,0,0.2); text-underline-offset: 2px; font-weight: 600; }
+    .est-level-desc a.case-link:hover { color: #0078d4; text-decoration-color: #0078d4; }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="/fr/" class="brand">
+      <img class="brand-logo" src="/logo.svg" alt="ffee" width="26" height="26"> ffee
+    </a>
+    <a class="header-back" href="/fr/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+      Tous les outils
+    </a>
+    <div class="spacer"></div>
+    <div class="lang-switch">
+      <a href="/tools/website-traffic-level/">EN</a>
+      <a href="/zh/tools/website-traffic-level/">中文</a>
+      <a href="/fr/tools/website-traffic-level/" class="active">FR</a>
+      <a href="/de/tools/website-traffic-level/">DE</a>
+    </div>
+  </header>
+
+  <main class="tool-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/fr/">Accueil</a>
+      <span class="sep">›</span>
+      <span>Vérificateur de Trafic</span>
+    </nav>
+
+    <section class="tool-hero">
+      <h1>Vérificateur de Niveau de Trafic Web : Mon Site est-il Normal ?</h1>
+      <p class="lead">Arrêtez de deviner. Entrez vos pages vues quotidiennes pour découvrir exactement où se situe votre site — et ce que vaut vraiment votre trafic.</p>
+    </section>
+
+    <section class="tool-workspace">
+      <h2>Évaluez votre site</h2>
+      <div class="estimator-form">
+        <div class="form-group">
+            <label>Pages vues quotidiennes (PV) :</label>
+            <input type="number" id="trafficInput" placeholder="ex: 6300" min="0">
+        </div>
+        <div class="form-group">
+            <label>Niche de contenu et région (RPM estimé) :</label>
+            <select id="rpmSelect">
+                <option value="2.5">Anglais général / Blogs & Outils (RPM : 2,5 $)</option>
+                <option value="8.0">Anglais moyen / Tech & Éducation (RPM : 8,0 $)</option>
+                <option value="20.0">Anglais haute valeur / Finance & B2B (RPM : 20,0 $)</option>
+                <option value="1.5">Trafic asiatique / Divertissement (RPM : 1,5 $)</option>
+            </select>
+        </div>
+        <button id="btnEstimate" class="btn btn-primary" type="button">Vérifier mon niveau</button>
+      </div>
+
+      <div id="estResult">
+        <div class="est-card" id="estTrafficCard">
+            <div class="est-level-title" id="estTrafficLevel"></div>
+            <div class="est-level-desc" id="estTrafficDesc"></div>
+        </div>
+        <div class="est-card est-money-box">
+            <div class="est-money-title">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+                Revenus AdSense Estimés
+            </div>
+            <div class="est-money-row"><span>Quotidien :</span><span class="est-money-val" id="revDaily"></span></div>
+            <div class="est-money-row"><span>Mensuel (30 jours) :</span><span class="est-money-val" id="revMonthly"></span></div>
+            <div class="est-money-row"><span>Annuel (365 jours) :</span><span class="est-money-val" id="revYearly"></span></div>
+            <div class="est-warning">
+                <strong>Remarque :</strong> Basé sur la formule RPM officielle de Google AdSense (Revenus estimés / Pages vues × 1000). Les revenus réels dépendent de la visibilité des annonces, du CTR et de l'engagement.
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-to">
+      <h2>Comment utiliser le vérificateur</h2>
+      <p style="margin-bottom: 15px; color: #555;">Conçu pour les développeurs indépendants et blogueurs souhaitant une évaluation réaliste.</p>
+      <ol style="line-height: 1.8;">
+        <li><strong>Entrez vos pages vues quotidiennes.</strong> Utilisez la métrique "Pages vues" (et non les Sessions) de votre outil d'analyse.</li>
+        <li><strong>Sélectionnez le RPM correspondant.</strong> Le RPM est ce que vous gagnez pour 1000 impressions. Choisissez l'option haute valeur pour la finance américaine, ou basse pour le divertissement mondial.</li>
+        <li><strong>Cliquez sur Vérifier.</strong> Vous verrez un niveau de trafic avec des exemples concrets et une estimation en USD et CNY.</li>
+        <li><strong>Lisez l'avertissement.</strong> Si l'engagement est faible, les annonces en bas de page ne seront jamais vues. C'est un plafond optimiste.</li>
+      </ol>
+    </section>
+
+    <section class="features">
+      <h2>Caractéristiques</h2>
+      <ul style="line-height: 1.8;">
+        <li><strong>Repères concrets.</strong> Chaque niveau inclut des exemples de sites réels.</li>
+        <li><strong>Calcul conforme à AdSense.</strong> Utilise les pages vues et les différences régionales.</li>
+        <li><strong>Confidentialité totale.</strong> Aucune donnée n'est envoyée.</li>
+        <li><strong>Multi-appareils.</strong> Fonctionne sur mobile, tablette et PC.</li>
+        <li><strong>Gratuit et illimité.</strong> Sans inscription.</li>
+      </ul>
+    </section>
+
+    <div class="ad-slot">Publicité</div>
+
+    <section class="related-tools">
+      <h2 class="related-title">Plus d'outils</h2>
+      <div class="related-links">
+        <a href="/fr/tools/base64-encoder/">Encodeur Base64</a>
+        <a href="/fr/tools/url-encoder/">Encodeur URL</a>
+        <a href="/fr/tools/hash-generator/">Générateur de Hash</a>
+        <a href="/fr/tools/jwt-decoder/">Décodeur JWT</a>
+        <a href="/fr/tools/image-compressor/">Compresseur d'images</a>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2 class="faq-head">Questions Fréquentes (FAQ)</h2>
+      <div class="faq-item">
+        <button class="faq-q" type="button">L'estimation AdSense est-elle précise ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Non. C'est un plafond basé sur des hypothèses de RPM. Les revenus réels dépendent de la visibilité des annonces, du CTR, de la catégorie de contenu et du défilement des utilisateurs.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Quel RPM choisir ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Utilisez votre RPM réel si vous l'avez. Sinon : Finance/B2B (15-30$), Tech (5-12$), Blogs généraux (2-5$), Divertissement asiatique (0,8-2$).</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">AdSense paie-t-il par clic ou par impression ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Les deux. AdSense utilise le CPC ou le CPM selon le type d'annonce. Le RPM combine les deux.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Pourquoi pas de champ CTR ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Parce que le RPM inclut déjà les clics. Google ne publie pas de référence CTR officielle, l'ajouter créerait une fausse précision.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Différence entre Sessions et Pages Vues ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Une session est une visite. Une page vue est un chargement de page. Une personne lisant 3 articles = 1 session, 3 pages vues. AdSense calcule sur les pages vues.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">500 visiteurs par jour, est-ce bien ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Cela dépend. Pour un blog passion, c'est une victoire. Pour un site commercial, cela rapporte environ 15$ par mois à 1$ de RPM.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Comment monter de niveau rapidement ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Pas de raccourci. Trouvez une audience spécifique avec un besoin non satisfait et servez-la régulièrement.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">La profondeur de défilement affecte-t-elle AdSense ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Oui. Si les utilisateurs ne descendent pas, les annonces du bas ne sont jamais vues, réduisant vos revenus.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Puis-je l'utiliser pour un client ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Oui, aucune donnée n'est stockée. Entrez les chiffres du client pour un premier aperçu.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">À quelle fréquence réévaluer ? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">Une fois par mois. Regardez la moyenne sur 30 jours pour éviter les fluctuations saisonnières.</div>
+      </div>
+    </section>
+
+    <p class="last-updated">Dernière mise à jour : 19 octobre 2026</p>
+
+    <footer class="site-footer">
+      <span>© 2026 ffee</span>
+      <span>Fonctionne localement · aucune donnée collectée · <a href="/fr/privacy.html">Politique de confidentialité</a></span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script src="/assets/js/common.js"></script>
+  <script>
+    (function () {
+      var btnEstimate = document.getElementById('btnEstimate');
+      var resultDiv = document.getElementById('estResult');
+      const EXCHANGE_RATE = 7.24; 
+
+      const formatUSD = (num) => '$' + num.toFixed(2);
+      const formatCNY = (num) => '¥' + (num * EXCHANGE_RATE).toFixed(2);
+
+      btnEstimate.addEventListener('click', function() {
+        var traffic = parseInt(document.getElementById('trafficInput').value);
+        var rpmUSD = parseFloat(document.getElementById('rpmSelect').value);
+        
+        if (isNaN(traffic) || traffic < 0) {
+            alert('Veuillez entrer un nombre valide de pages vues.');
+            return;
+        }
+
+        var level = '';
+        var desc = '';
+        var className = '';
+        const extLink = (url, text) => `<a href="https://${url}" target="_blank" rel="nofollow noopener" class="case-link">${text}</a>`;
+
+        if (traffic < 150) {
+            level = 'Niveau 1 : Stade de départ';
+            desc = 'Comme un blog personnel que personne ne connaît. Votre priorité est l\'indexation par Google.';
+            className = 'lvl-1';
+        } else if (traffic >= 150 && traffic < 1500) {
+            level = 'Niveau 2 : Stade débutant';
+            desc = 'Un petit magasin de quartier. 90% des sites indépendants restent ici. Concentrez-vous sur le contenu de longue traîne.';
+            className = 'lvl-2';
+        } else if (traffic >= 1500 && traffic < 7500) {
+            level = 'Niveau 3 : Stade de croissance';
+            desc = `Exemple réel : ${extLink('tractordata.com', 'TractorData.com')} et ${extLink('fuun.fun', 'Fuun.fun')}. Vous avez trouvé une audience cible. Passez à la rétention des utilisateurs.`;
+            className = 'lvl-3';
+        } else if (traffic >= 7500 && traffic < 15000) {
+            level = 'Niveau 4 : Stade d\'échelle';
+            desc = `Exemples : ${extLink('theuselessweb.com', 'The Useless Web')}, ${extLink('1001freefonts.com', '1001FreeFonts')}. Votre site est un produit. Les annonceurs vous contactent.`;
+            className = 'lvl-4';
+        } else {
+            level = 'Niveau 5 : Élite';
+            desc = `Exemples : ${extLink('mathplayground.com', 'MathPlayground')}, ${extLink('coolmathgames.com', 'CoolMathGames')}. Propriétaire individuel est extrêmement rare. Vous gérez une marque.`;
+            className = 'lvl-5';
+        }
+
+        document.getElementById('estTrafficLevel').innerText = level;
+        document.getElementById('estTrafficDesc').innerHTML = desc;
+        var card = document.getElementById('estTrafficCard');
+        card.className = 'est-card ' + className;
+
+        var dailyUSD = (traffic / 1000) * rpmUSD;
+        var monthlyUSD = dailyUSD * 30;
+        var yearlyUSD = dailyUSD * 365;
+
+        document.getElementById('revDaily').innerHTML = `${formatUSD(dailyUSD)} <span class="est-money-cny">(~ ${formatCNY(dailyUSD)})</span>`;
+        document.getElementById('revMonthly').innerHTML = `${formatUSD(monthlyUSD)} <span class="est-money-cny">(~ ${formatCNY(monthlyUSD)})</span>`;
+        document.getElementById('revYearly').innerHTML = `${formatUSD(yearlyUSD)} <span class="est-money-cny">(~ ${formatCNY(yearlyUSD)})</span>`;
+
+        resultDiv.style.display = 'block';
+      });
+    })();
+  </script>
+</body>
+</html>
